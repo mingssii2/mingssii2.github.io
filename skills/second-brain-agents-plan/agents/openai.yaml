@@ -1,0 +1,4 @@
+interface:
+  display_name: "Second Brain Agents Plan"
+  short_description: "Scoped planning and portable, evidence-backed handoffs."
+  default_prompt: "Use $second-brain-agents-plan to plan from my supplied context, resolve material unknowns, and produce the requested artifact."

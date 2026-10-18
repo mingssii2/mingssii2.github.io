@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local source review and historical results, not preview behavior validation or independent certification",
+  "skill": {
+    "id": "skill-evaluate",
+    "title": "ประเมิน skill โดยไม่หลงคะแนน",
+    "role": "Evaluation",
+    "description": "แยกคุณภาพคำสั่ง ความเหมาะกับเจ้าของงาน และผลทดลองจริง เพื่อเลือกว่าจะใช้ ปรับ หรือหยุดใช้",
+    "example": "ประเมิน skill นี้จาก source และหลักฐานที่มี แยกสิ่งที่ยังไม่ได้ทดสอบ และอย่าสรุปว่า production-ready จากคะแนนสูง",
+    "result": "เหตุผลในการใช้หรือปรับ พร้อมขอบเขตความน่าเชื่อถือ",
+    "G": [
+      8.5,
+      9,
+      8.5,
+      8
+    ],
+    "F": [
+      9,
+      8,
+      9,
+      8.5
+    ],
+    "refs": 0,
+    "explicit": 0,
+    "rationale": "แยก static/behavior และ critical failures ชัด; การประเมินหลายมิติมีต้นทุน ต้อง reuse หลักฐานและจำกัด trial budget",
+    "behavior": "รุ่น 3.0.0 มี synthetic smoke 1 case ได้ 10/10 ในรายงานเดิม โดย agent เดียวสร้างและให้คะแนนเอง",
+    "limits": "ไม่ใช่การรับรองจากบุคคลที่สาม ตัวประเมินและรายงานนี้อยู่ใน workflow เดียวกับผู้พัฒนา; ไม่มี independent certification หรือผล production",
+    "source": "benchmarks/custom-upgrade-v3/evaluator/custom-behavior-review-final.md",
+    "tested": "3.0.0",
+    "expected": "ไม่รวม G/F กับ benchmark; คะแนนสูงที่มี critical failure ต้องไม่ผ่าน release; ไม่อ้าง savings เมื่อไม่มี telemetry",
+    "local_version": "3.0.0",
+    "source_sha256": "efa54a352b05990d83abdffa345e5f24b388ee2c902455ddebf791f06eb4fe4d",
+    "public_version": "3.0.0-preview.1",
+    "G_mean": 8.5,
+    "F_mean": 8.625,
+    "verdict": "Adopt (provisional; user fit only)",
+    "public_sha256": "bdc8db7aea24fac4be081b720ac51605f8c355ea7c17007289191ec111a7d681",
+    "adaptation": [
+      "SKILL.md"
+    ],
+    "license": "MIT",
+    "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+    "package_sha256": {
+      "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+      "SKILL.md": "bdc8db7aea24fac4be081b720ac51605f8c355ea7c17007289191ec111a7d681",
+      "references/behavior-evaluation.md": "0b7752973b669a61068a51b78f24e0def8a423c9cd1af59fedf3ba2f10179292",
+      "references/efficiency-and-models.md": "33361f6af437809419636103b674c7c44225d6948c6ef3ffad95f34b6b38965a",
+      "references/report-and-release.md": "34eda7b4dbf4d02159fecec8a8d1d280faae096ba6c726a852b80bea5f4b8f5a"
+    }
+  }
+}

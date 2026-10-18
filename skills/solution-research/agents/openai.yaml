@@ -1,0 +1,6 @@
+interface:
+  display_name: "Solution Research"
+  short_description: "Map and compare broad technical solution landscapes"
+  default_prompt: "Use $solution-research to map the full solution landscape, filter it by constraints, and recommend the best-supported route."
+policy:
+  allow_implicit_invocation: false

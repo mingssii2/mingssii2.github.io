@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local source review and historical results, not preview behavior validation or independent certification",
+  "skill": {
+    "id": "second-brain-agents-plan",
+    "title": "วางแผนให้ตัดสินใจและส่งต่อได้",
+    "role": "Planning",
+    "description": "เปลี่ยนไอเดียกว้าง ๆ ให้เป็นทางเลือกที่เทียบกันได้ พร้อมข้อแลกเปลี่ยนและขั้นถัดไปที่ชัดเจน",
+    "example": "ช่วยวางแผนระบบจองห้องประชุมสำหรับทีมเล็ก เปรียบเทียบใช้ของเดิมกับสร้างเอง แล้วส่งต่อสิ่งที่ตัดสินใจแล้ว",
+    "result": "ทางเลือก เหตุผล ข้อจำกัด และแผนส่งต่อ",
+    "G": [
+      8.5,
+      8.5,
+      8,
+      8
+    ],
+    "F": [
+      9,
+      9,
+      8.5,
+      8.5
+    ],
+    "refs": 4,
+    "explicit": 4,
+    "rationale": "ขอบเขต planning ชัดและใช้เดี่ยวได้; คำสั่งค่อนข้างยาวและยังมีความตึงระหว่างรูปแบบส่งมอบกับการเขียนไฟล์",
+    "behavior": "รุ่น 3.2.0 ได้ 10/10 ใน 4 outputs ใหม่ (2 โจทย์ × 2 รอบ) ในการเปรียบเทียบกับ 3.3.0; รุ่น 3.3.0 ได้เฉลี่ย 9.17/10 ในกลุ่มเดียวกัน",
+    "limits": "การตรวจแบบปิดชื่อรุ่นโดย AI และการตรวจข้อเท็จจริงภายหลัง; ไม่ใช่ผู้ตรวจภายนอกหรือผู้ใช้จริง การแยก filesystem ไม่สมบูรณ์ และไม่มี telemetry ต้นทุน รุ่น 3.3.0 เคยมี critical failure 1 output ในกลุ่ม historical ซึ่งแยกจาก 4 outputs ใหม่นี้",
+    "source": "benchmarks/decision-quality-v1/robust-benchmark-v2/results-final.json",
+    "tested": "3.2.0",
+    "expected": "เปรียบเทียบทางเลือกตามเงื่อนไขที่ให้; ไม่เปลี่ยนข้อเสี่ยงให้เป็นข้อห้ามที่ผู้ใช้ไม่ได้ตั้ง; ไม่ลงมือสร้างระบบจากคำขอวางแผน",
+    "local_version": "3.2.0",
+    "source_sha256": "722cef41fd093240bc4eec3d6fdfaddfc78a53467344ce38f7d5db21aead1998",
+    "public_version": "3.2.0-preview.1",
+    "G_mean": 8.25,
+    "F_mean": 8.75,
+    "verdict": "Adopt (provisional; user fit only)",
+    "public_sha256": "280cdcc29ee641c8df7afb0c73fc8cebba625e850b874a3b16965183c055a755",
+    "adaptation": [
+      "SKILL.md"
+    ],
+    "license": "MIT",
+    "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+    "package_sha256": {
+      "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+      "SKILL.md": "280cdcc29ee641c8df7afb0c73fc8cebba625e850b874a3b16965183c055a755",
+      "agents/openai.yaml": "552179ba949c26f226d1e5172a8ba0c36e5085b4800cad0a7005924786eac264"
+    }
+  }
+}

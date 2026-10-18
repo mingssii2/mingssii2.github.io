@@ -1,0 +1,310 @@
+{
+  "date": "2026-10-18",
+  "status": "public-preview; experimental; MIT",
+  "license": "MIT",
+  "source_review": {
+    "rubric": "G-F-1",
+    "reviewer": "AI assisting the skill owner; not independent",
+    "confidence": "medium; F provisional",
+    "G_dimensions": [
+      "Trigger clarity",
+      "Instruction robustness",
+      "Composability",
+      "Complexity fit"
+    ],
+    "F_dimensions": [
+      "Workflow relevance",
+      "Anti-friction",
+      "Stack fit",
+      "Team-shape fit"
+    ],
+    "weights": "equal: four subscores per axis; scores in 0.5 steps; no combined G/F/behavior rank",
+    "scope": "2026-10-18 source review of local versions; no new behavioral trials; preview adaptations require new checks"
+  },
+  "usage": {
+    "date": "2026-10-04",
+    "sample": 17,
+    "excluded_evaluation_rows": 3,
+    "method": "Recomputed from an existing 20-row summary; no private session logs rescanned. Counts are sessions with path references or explicit requests, not confirmed executions or account-wide frequency.",
+    "limits": "Selected Codex sample only; no recency guarantee, causal benefit, success rate or cross-host coverage. No-match is not never-used."
+  },
+  "skills": [
+    {
+      "id": "second-brain-agents-plan",
+      "title": "วางแผนให้ตัดสินใจและส่งต่อได้",
+      "role": "Planning",
+      "description": "เปลี่ยนไอเดียกว้าง ๆ ให้เป็นทางเลือกที่เทียบกันได้ พร้อมข้อแลกเปลี่ยนและขั้นถัดไปที่ชัดเจน",
+      "example": "ช่วยวางแผนระบบจองห้องประชุมสำหรับทีมเล็ก เปรียบเทียบใช้ของเดิมกับสร้างเอง แล้วส่งต่อสิ่งที่ตัดสินใจแล้ว",
+      "result": "ทางเลือก เหตุผล ข้อจำกัด และแผนส่งต่อ",
+      "G": [
+        8.5,
+        8.5,
+        8,
+        8
+      ],
+      "F": [
+        9,
+        9,
+        8.5,
+        8.5
+      ],
+      "refs": 4,
+      "explicit": 4,
+      "rationale": "ขอบเขต planning ชัดและใช้เดี่ยวได้; คำสั่งค่อนข้างยาวและยังมีความตึงระหว่างรูปแบบส่งมอบกับการเขียนไฟล์",
+      "behavior": "รุ่น 3.2.0 ได้ 10/10 ใน 4 outputs ใหม่ (2 โจทย์ × 2 รอบ) ในการเปรียบเทียบกับ 3.3.0; รุ่น 3.3.0 ได้เฉลี่ย 9.17/10 ในกลุ่มเดียวกัน",
+      "limits": "การตรวจแบบปิดชื่อรุ่นโดย AI และการตรวจข้อเท็จจริงภายหลัง; ไม่ใช่ผู้ตรวจภายนอกหรือผู้ใช้จริง การแยก filesystem ไม่สมบูรณ์ และไม่มี telemetry ต้นทุน รุ่น 3.3.0 เคยมี critical failure 1 output ในกลุ่ม historical ซึ่งแยกจาก 4 outputs ใหม่นี้",
+      "source": "benchmarks/decision-quality-v1/robust-benchmark-v2/results-final.json",
+      "tested": "3.2.0",
+      "expected": "เปรียบเทียบทางเลือกตามเงื่อนไขที่ให้; ไม่เปลี่ยนข้อเสี่ยงให้เป็นข้อห้ามที่ผู้ใช้ไม่ได้ตั้ง; ไม่ลงมือสร้างระบบจากคำขอวางแผน",
+      "local_version": "3.2.0",
+      "source_sha256": "722cef41fd093240bc4eec3d6fdfaddfc78a53467344ce38f7d5db21aead1998",
+      "public_version": "3.2.0-preview.1",
+      "G_mean": 8.25,
+      "F_mean": 8.75,
+      "verdict": "Adopt (provisional; user fit only)",
+      "public_sha256": "280cdcc29ee641c8df7afb0c73fc8cebba625e850b874a3b16965183c055a755",
+      "adaptation": [
+        "SKILL.md"
+      ],
+      "license": "MIT",
+      "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+      "package_sha256": {
+        "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+        "SKILL.md": "280cdcc29ee641c8df7afb0c73fc8cebba625e850b874a3b16965183c055a755",
+        "agents/openai.yaml": "552179ba949c26f226d1e5172a8ba0c36e5085b4800cad0a7005924786eac264"
+      }
+    },
+    {
+      "id": "solution-research",
+      "title": "หาวิธีที่เหมาะ ก่อนเริ่มสร้าง",
+      "role": "Research",
+      "description": "สำรวจวิธีทำหลายทาง ตรวจของที่มีอยู่แล้ว และอ้างอิงหลักฐานก่อนแนะนำให้ลงทุนลงแรง",
+      "example": "ต้องส่งข้อมูลระหว่างสองระบบทุกวัน มีวิธีใช้ของเดิมหรือ connector แทนเขียนใหม่ไหม ช่วยเทียบข้อจำกัดและค่าใช้จ่าย",
+      "result": "วิธีที่ทำได้ ข้อจำกัด แหล่งอ้างอิง และสิ่งที่ต้องตรวจเพิ่ม",
+      "G": [
+        9,
+        9,
+        8.5,
+        7.5
+      ],
+      "F": [
+        9,
+        8,
+        9,
+        8.5
+      ],
+      "refs": 1,
+      "explicit": 1,
+      "rationale": "สำรวจหลาย family และตรวจข้อโต้แย้งได้; workflow ระดับ standard หนักสำหรับคำถามแคบ จึงต้องเลือกระดับให้ถูก",
+      "behavior": "รุ่น 3.1.0 ได้ 10/10 ในโจทย์ research 2 ข้อ ข้อละ 1 trial; baseline 3.0.0 ได้ 7/10 และ 8/10 มี negative control ร่วมที่ทั้งสองรุ่นได้ 10/10",
+      "limits": "โจทย์เขียนโดยผู้แก้ skill; AI grader ปิดบังได้บางส่วนและมี ceiling effect ทดสอบบน host ที่มี discovery tools; fallback บน host อื่นยังไม่พิสูจน์ ยอด subagent tokens ของชุดทดลองรวม 4 cases เพิ่ม 5.6% จึงไม่อ้างว่าประหยัด",
+      "source": "benchmarks/capability-discovery-v1/results.md",
+      "tested": "3.1.0",
+      "expected": "เทียบ source-owned, destination-owned และตัวกลางตามความเกี่ยวข้อง; แยก unknown จาก fail; ไม่ติดตั้ง connector เอง",
+      "local_version": "3.1.0",
+      "source_sha256": "cdce42940ddba4188b3602e0b15edac6225e94bba172b8d4643d290a49ea991f",
+      "public_version": "3.1.0-preview.1",
+      "G_mean": 8.5,
+      "F_mean": 8.625,
+      "verdict": "Adopt (provisional; user fit only)",
+      "public_sha256": "e835509e5836880135232557c22019f39fc0c3f215b7bcdc7f2b905380bbfdc0",
+      "adaptation": [
+        "SKILL.md"
+      ],
+      "license": "MIT",
+      "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+      "package_sha256": {
+        "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+        "SKILL.md": "e835509e5836880135232557c22019f39fc0c3f215b7bcdc7f2b905380bbfdc0",
+        "agents/openai.yaml": "57b1d4db2505ec8e3d83d9450f8a18f6cedb3a634bb5eecf9e54d1bdbd5bc72a",
+        "references/capability-discovery.md": "61f2b0188df2b12873898d08a444983f23cb82fcd034bfef384127a0078c84d9",
+        "references/context-question-bank.md": "0d7f37e682096db9093a6b35aead205f58865718ec4729d0113deb4110372876",
+        "references/evidence-rubric.md": "45178e22cc11b19508b4b897bae39f4b5255348a63e1c32f9146b700c7a81840",
+        "references/report-contract.md": "129d96bb0f770d91faeb2cad1924e3be4fa420bae0bb9fd123888a6e25580a10"
+      }
+    },
+    {
+      "id": "second-brain-coding",
+      "title": "แก้ที่ต้นเหตุ พร้อมหลักฐานว่าทำงาน",
+      "role": "Coding",
+      "description": "ไล่เส้นทางโค้ดจริง ใช้ของเดิมก่อน เพิ่มเฉพาะที่จำเป็น และส่งมอบพร้อมการตรวจที่เหมาะกับความเสี่ยง",
+      "example": "แก้การตรวจข้อมูลใน helper ที่ CLI และ API ใช้ร่วมกัน โดยรักษาค่า 0 ที่ถูกต้อง และทิ้ง runnable check ไว้",
+      "result": "การแก้ที่มีขอบเขตชัด พร้อมผลตรวจและสิ่งที่ยังไม่พิสูจน์",
+      "G": [
+        8.5,
+        9,
+        9,
+        9
+      ],
+      "F": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "refs": 9,
+      "explicit": 0,
+      "rationale": "สอดคล้องกับ diff เล็กและ root cause; local รุ่นเดิมพึ่ง vault ส่วนตัว ฉบับเตรียมเผยแพร่ต้องใช้ได้เมื่อไม่มี vault",
+      "behavior": "รุ่น local 3.1.0: local artifact checks ผ่าน T1/T2/T5; อีก 5 scenarios เป็น walkthrough ที่ผู้แก้เห็นโจทย์ ไม่ใช่ fresh agent trials",
+      "limits": "ยังไม่มี A/B ที่เทียบเท่ากัน ไม่มี human comprehension, cold handoff หรือ whole-run token savings ที่วัดได้ ฉบับ public ปรับการตั้งค่า vault จึงยังไม่รับคะแนนพฤติกรรมของรุ่น local โดยอัตโนมัติ",
+      "source": "benchmarks/second-brain-coding-2026-10-15/evaluation.json",
+      "tested": "3.1.0 local",
+      "expected": "แก้ helper ร่วมแทนแปะ guard ทุก caller; คง 0; ปฏิเสธ input ผิด; check ต้องจับ defect เดิมได้",
+      "local_version": "3.1.0",
+      "source_sha256": "dd34cbbbe69e229e19deca14902f95854106a234c4c359097660cd210b288a42",
+      "public_version": "3.1.0-preview.1",
+      "G_mean": 8.875,
+      "F_mean": 9.0,
+      "verdict": "Adopt (provisional; user fit only)",
+      "public_sha256": "38d468b57f6029a038985d69a279ec47624eae91ac310b292e5e45cb9197fb53",
+      "adaptation": [
+        "SKILL.md"
+      ],
+      "license": "MIT",
+      "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+      "package_sha256": {
+        "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+        "SKILL.md": "38d468b57f6029a038985d69a279ec47624eae91ac310b292e5e45cb9197fb53",
+        "agents/openai.yaml": "dd0b5e3b83dcc940d56692d6e6a9bf579e1c0e16aa932a9f523f7e19eb8bd485",
+        "references/coding-principle-map.md": "0b5f2f37ce6274f665cc0e5f918b661eeb2e3c68ab6c9522bf1aaa583d92bb54",
+        "references/compliance-check.md": "13f6fd2d7d1dd87b9ce003dd189f3f85a0f6be276f1ed66a61b927a16905685e",
+        "references/project-kickoff.md": "337f50bd86a7b5987c6289760a00089b2650a995ba3056275fabd5b12a69f479"
+      }
+    },
+    {
+      "id": "skill-evaluate",
+      "title": "ประเมิน skill โดยไม่หลงคะแนน",
+      "role": "Evaluation",
+      "description": "แยกคุณภาพคำสั่ง ความเหมาะกับเจ้าของงาน และผลทดลองจริง เพื่อเลือกว่าจะใช้ ปรับ หรือหยุดใช้",
+      "example": "ประเมิน skill นี้จาก source และหลักฐานที่มี แยกสิ่งที่ยังไม่ได้ทดสอบ และอย่าสรุปว่า production-ready จากคะแนนสูง",
+      "result": "เหตุผลในการใช้หรือปรับ พร้อมขอบเขตความน่าเชื่อถือ",
+      "G": [
+        8.5,
+        9,
+        8.5,
+        8
+      ],
+      "F": [
+        9,
+        8,
+        9,
+        8.5
+      ],
+      "refs": 0,
+      "explicit": 0,
+      "rationale": "แยก static/behavior และ critical failures ชัด; การประเมินหลายมิติมีต้นทุน ต้อง reuse หลักฐานและจำกัด trial budget",
+      "behavior": "รุ่น 3.0.0 มี synthetic smoke 1 case ได้ 10/10 ในรายงานเดิม โดย agent เดียวสร้างและให้คะแนนเอง",
+      "limits": "ไม่ใช่การรับรองจากบุคคลที่สาม ตัวประเมินและรายงานนี้อยู่ใน workflow เดียวกับผู้พัฒนา; ไม่มี independent certification หรือผล production",
+      "source": "benchmarks/custom-upgrade-v3/evaluator/custom-behavior-review-final.md",
+      "tested": "3.0.0",
+      "expected": "ไม่รวม G/F กับ benchmark; คะแนนสูงที่มี critical failure ต้องไม่ผ่าน release; ไม่อ้าง savings เมื่อไม่มี telemetry",
+      "local_version": "3.0.0",
+      "source_sha256": "efa54a352b05990d83abdffa345e5f24b388ee2c902455ddebf791f06eb4fe4d",
+      "public_version": "3.0.0-preview.1",
+      "G_mean": 8.5,
+      "F_mean": 8.625,
+      "verdict": "Adopt (provisional; user fit only)",
+      "public_sha256": "bdc8db7aea24fac4be081b720ac51605f8c355ea7c17007289191ec111a7d681",
+      "adaptation": [
+        "SKILL.md"
+      ],
+      "license": "MIT",
+      "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+      "package_sha256": {
+        "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+        "SKILL.md": "bdc8db7aea24fac4be081b720ac51605f8c355ea7c17007289191ec111a7d681",
+        "references/behavior-evaluation.md": "0b7752973b669a61068a51b78f24e0def8a423c9cd1af59fedf3ba2f10179292",
+        "references/efficiency-and-models.md": "33361f6af437809419636103b674c7c44225d6948c6ef3ffad95f34b6b38965a",
+        "references/report-and-release.md": "34eda7b4dbf4d02159fecec8a8d1d280faae096ba6c726a852b80bea5f4b8f5a"
+      }
+    },
+    {
+      "id": "gas-review",
+      "title": "ตรวจ Apps Script ก่อนเจอปัญหาตอนรัน",
+      "role": "Google Apps Script",
+      "description": "ตรวจ API ของ host รูปร่าง event ข้อมูลว่าง และการเปิดเผยข้อมูลใน log ก่อนนำสคริปต์ไปใช้",
+      "example": "ตรวจ onFormSubmit นี้ว่าใช้ event ของ Google Forms หรือ Google Sheets ถูกหรือไม่ และมีข้อมูลลับหลุดใน log ไหม",
+      "result": "จุดที่ต้องแก้พร้อมเหตุผล และรายการที่ต้องทดลองใน Apps Script จริง",
+      "G": [
+        9,
+        8.5,
+        8.5,
+        9
+      ],
+      "F": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "refs": 4,
+      "explicit": 0,
+      "rationale": "trigger เฉพาะ host และแยก static/live ชัด; checklist ต้องตรวจ official API สดเมื่อไม่แน่ใจและยังมีโอกาส false positive",
+      "behavior": "รุ่น 3.0.0 เคยมี self-graded smoke 1 case; รุ่นที่ติดตั้งปัจจุบัน 3.1.0 ยังไม่มี fresh behavioral score ที่เทียบได้ในหลักฐานชุดนี้",
+      "limits": "คะแนนรุ่นเก่าไม่ถ่ายมารุ่น 3.1.0 หรือฉบับ public; ยังไม่ได้รัน Save, trigger, permission และ quota ใน host จริง",
+      "source": "benchmarks/custom-upgrade-v3/evaluator/custom-behavior-review-final.md",
+      "tested": "3.0.0 historical",
+      "expected": "Forms event ใช้ e.response; spreadsheet submit ใช้ e.range/e.values; ไม่แจ้งว่า console เป็น API ผิดเพียงเพราะชื่อ logger",
+      "local_version": "3.1.0",
+      "source_sha256": "85c92d9871c527da11e7a95e0a2f4e7e561259a9fdada869a074adf521b94672",
+      "public_version": "3.1.0-preview.1",
+      "G_mean": 8.75,
+      "F_mean": 9.0,
+      "verdict": "Adopt (provisional; user fit only)",
+      "public_sha256": "d797f932b9ca08faa52a0adf57e4c5f9489da5cfed2812c8c5593bc50f4d8817",
+      "adaptation": [
+        "SKILL.md"
+      ],
+      "license": "MIT",
+      "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+      "package_sha256": {
+        "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+        "SKILL.md": "d797f932b9ca08faa52a0adf57e4c5f9489da5cfed2812c8c5593bc50f4d8817"
+      }
+    },
+    {
+      "id": "office-script-review",
+      "title": "ตรวจ Office Scripts ให้ตรงกับ Excel",
+      "role": "Office Scripts",
+      "description": "จับความสับสนระหว่าง Office.js กับ ExcelScript รวมถึงสัญญา Run script และขอบเขตที่ต้องวัดบน Power Automate",
+      "example": "ตรวจ Office Script นี้ว่ามีการเรียก Office.js ปนหรือไม่ และแยกผล static review จากการรัน Power Automate จริง",
+      "result": "ปัญหา API/type ที่พบ และสิ่งที่ยังต้องพิสูจน์บน workbook จริง",
+      "G": [
+        9,
+        9,
+        8.5,
+        8
+      ],
+      "F": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "refs": 1,
+      "explicit": 0,
+      "rationale": "มี API authority และ false-positive guard; runtime/formatting ทำให้คำสั่งยาวและต้องแยกหลักฐาน cloud จาก local",
+      "behavior": "รุ่น 3.0.0 เคยมี self-graded smoke 1 case และ static gate ของ deleteRowsAt; รุ่นปัจจุบัน 3.1.0 ยังไม่มี fresh behavioral score ที่เทียบได้ในหลักฐานชุดนี้",
+      "limits": "ฉบับ public ตัด optional formatter ที่อยู่นอกหน้าที่ review; static check ไม่พิสูจน์ editor compilation, workbook state หรือเวลารัน cloud",
+      "source": "benchmarks/custom-upgrade-v3/evaluator/custom-behavior-review-final.md",
+      "tested": "3.0.0 historical",
+      "expected": "ไม่กล่าวหา table.deleteRowsAt ว่า API ผิด; พบ range.values ต้องแนะนำ getValues; ไม่อ้างผ่าน cloud deadline จาก Node timing",
+      "local_version": "3.1.0",
+      "source_sha256": "e382b4dc6a179e518792f544d833996d6710b2d39c230a671043ccdd66f3b372",
+      "public_version": "3.1.0-preview.1",
+      "G_mean": 8.625,
+      "F_mean": 9.0,
+      "verdict": "Adopt (provisional; user fit only)",
+      "public_sha256": "67c148c132871abef3183b61de8d494e12486f9a5d2e6c894a5bffe6d139daf4",
+      "adaptation": [
+        "SKILL.md"
+      ],
+      "license": "MIT",
+      "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+      "package_sha256": {
+        "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+        "SKILL.md": "67c148c132871abef3183b61de8d494e12486f9a5d2e6c894a5bffe6d139daf4"
+      }
+    }
+  ]
+}

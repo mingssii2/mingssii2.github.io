@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local source review and historical results, not preview behavior validation or independent certification",
+  "skill": {
+    "id": "office-script-review",
+    "title": "ตรวจ Office Scripts ให้ตรงกับ Excel",
+    "role": "Office Scripts",
+    "description": "จับความสับสนระหว่าง Office.js กับ ExcelScript รวมถึงสัญญา Run script และขอบเขตที่ต้องวัดบน Power Automate",
+    "example": "ตรวจ Office Script นี้ว่ามีการเรียก Office.js ปนหรือไม่ และแยกผล static review จากการรัน Power Automate จริง",
+    "result": "ปัญหา API/type ที่พบ และสิ่งที่ยังต้องพิสูจน์บน workbook จริง",
+    "G": [
+      9,
+      9,
+      8.5,
+      8
+    ],
+    "F": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "refs": 1,
+    "explicit": 0,
+    "rationale": "มี API authority และ false-positive guard; runtime/formatting ทำให้คำสั่งยาวและต้องแยกหลักฐาน cloud จาก local",
+    "behavior": "รุ่น 3.0.0 เคยมี self-graded smoke 1 case และ static gate ของ deleteRowsAt; รุ่นปัจจุบัน 3.1.0 ยังไม่มี fresh behavioral score ที่เทียบได้ในหลักฐานชุดนี้",
+    "limits": "ฉบับ public ตัด optional formatter ที่อยู่นอกหน้าที่ review; static check ไม่พิสูจน์ editor compilation, workbook state หรือเวลารัน cloud",
+    "source": "benchmarks/custom-upgrade-v3/evaluator/custom-behavior-review-final.md",
+    "tested": "3.0.0 historical",
+    "expected": "ไม่กล่าวหา table.deleteRowsAt ว่า API ผิด; พบ range.values ต้องแนะนำ getValues; ไม่อ้างผ่าน cloud deadline จาก Node timing",
+    "local_version": "3.1.0",
+    "source_sha256": "e382b4dc6a179e518792f544d833996d6710b2d39c230a671043ccdd66f3b372",
+    "public_version": "3.1.0-preview.1",
+    "G_mean": 8.625,
+    "F_mean": 9.0,
+    "verdict": "Adopt (provisional; user fit only)",
+    "public_sha256": "67c148c132871abef3183b61de8d494e12486f9a5d2e6c894a5bffe6d139daf4",
+    "adaptation": [
+      "SKILL.md"
+    ],
+    "license": "MIT",
+    "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+    "package_sha256": {
+      "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+      "SKILL.md": "67c148c132871abef3183b61de8d494e12486f9a5d2e6c894a5bffe6d139daf4"
+    }
+  }
+}

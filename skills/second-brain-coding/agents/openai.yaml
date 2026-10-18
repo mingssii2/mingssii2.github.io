@@ -1,0 +1,4 @@
+interface:
+  display_name: "Second Brain Coding"
+  short_description: "Apply AI Second Brain coding principles to coding work."
+  default_prompt: "Use the Second Brain coding workflow for this coding task."

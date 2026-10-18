@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local source review and historical results, not preview behavior validation or independent certification",
+  "skill": {
+    "id": "gas-review",
+    "title": "ตรวจ Apps Script ก่อนเจอปัญหาตอนรัน",
+    "role": "Google Apps Script",
+    "description": "ตรวจ API ของ host รูปร่าง event ข้อมูลว่าง และการเปิดเผยข้อมูลใน log ก่อนนำสคริปต์ไปใช้",
+    "example": "ตรวจ onFormSubmit นี้ว่าใช้ event ของ Google Forms หรือ Google Sheets ถูกหรือไม่ และมีข้อมูลลับหลุดใน log ไหม",
+    "result": "จุดที่ต้องแก้พร้อมเหตุผล และรายการที่ต้องทดลองใน Apps Script จริง",
+    "G": [
+      9,
+      8.5,
+      8.5,
+      9
+    ],
+    "F": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "refs": 4,
+    "explicit": 0,
+    "rationale": "trigger เฉพาะ host และแยก static/live ชัด; checklist ต้องตรวจ official API สดเมื่อไม่แน่ใจและยังมีโอกาส false positive",
+    "behavior": "รุ่น 3.0.0 เคยมี self-graded smoke 1 case; รุ่นที่ติดตั้งปัจจุบัน 3.1.0 ยังไม่มี fresh behavioral score ที่เทียบได้ในหลักฐานชุดนี้",
+    "limits": "คะแนนรุ่นเก่าไม่ถ่ายมารุ่น 3.1.0 หรือฉบับ public; ยังไม่ได้รัน Save, trigger, permission และ quota ใน host จริง",
+    "source": "benchmarks/custom-upgrade-v3/evaluator/custom-behavior-review-final.md",
+    "tested": "3.0.0 historical",
+    "expected": "Forms event ใช้ e.response; spreadsheet submit ใช้ e.range/e.values; ไม่แจ้งว่า console เป็น API ผิดเพียงเพราะชื่อ logger",
+    "local_version": "3.1.0",
+    "source_sha256": "85c92d9871c527da11e7a95e0a2f4e7e561259a9fdada869a074adf521b94672",
+    "public_version": "3.1.0-preview.1",
+    "G_mean": 8.75,
+    "F_mean": 9.0,
+    "verdict": "Adopt (provisional; user fit only)",
+    "public_sha256": "d797f932b9ca08faa52a0adf57e4c5f9489da5cfed2812c8c5593bc50f4d8817",
+    "adaptation": [
+      "SKILL.md"
+    ],
+    "license": "MIT",
+    "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+    "package_sha256": {
+      "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+      "SKILL.md": "d797f932b9ca08faa52a0adf57e4c5f9489da5cfed2812c8c5593bc50f4d8817"
+    }
+  }
+}

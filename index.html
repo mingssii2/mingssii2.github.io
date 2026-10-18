@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>mingssii2 — Apps &amp; work</title>
-<meta name="description" content="แอปเล็ก ๆ ที่เปิดในเบราว์เซอร์ได้ทันที และผลงานทั้งหมดบน GitHub ของ mingssii2">
-<meta property="og:title" content="mingssii2 — Apps & work">
-<meta property="og:description" content="Fair Wheel, PAD Flow Cleaner and everything else I've built on GitHub.">
+<title>mingssii2 — Apps, skills &amp; work</title>
+<meta name="description" content="แอปที่เปิดใช้ได้ทันที วิธีทำงานกับ AI ที่ใช้ซ้ำได้ พร้อมตัวอย่างและขอบเขตผลประเมินของ mingssii2">
+<meta property="og:title" content="mingssii2 — Apps, skills & work">
+<meta property="og:description" content="Apps, reusable AI skills, examples and transparent evaluation evidence from mingssii2.">
 <meta property="og:image" content="https://mingssii2.github.io/assets/shot-wheel.jpg">
 <meta property="og:url" content="https://mingssii2.github.io/">
 <meta name="theme-color" content="#0f1628">
@@ -33,7 +33,7 @@
 
 <nav class="nav" aria-label="Main"><div class="wrap">
   <a class="wordmark" href="#top">mingssii2</a>
-  <ul><li><a href="#featured">Apps</a></li><li><a href="#work">All work</a></li><li class="wide"><a href="https://github.com/mingssii2" target="_blank" rel="noopener">GitHub ↗</a></li></ul>
+  <ul><li><a href="#featured">Apps</a></li><li><a href="#skills">Skills</a></li><li><a href="#work">All work</a></li><li class="wide"><a href="https://github.com/mingssii2" target="_blank" rel="noopener">GitHub ↗</a></li></ul>
 </div></nav>
 
 <!-- Hero · Tesla-style showroom: one app per slide, centred name, product in the middle, two buttons -->
@@ -85,6 +85,94 @@
       <img src="assets/shot-pad.jpg" width="799" height="609" alt="PAD Flow Cleaner: a paste box for a Power Automate Desktop flow" loading="lazy"></div>
   </article>
 </div></section>
+
+<section class="skills" id="skills" aria-labelledby="skills-heading"><div class="wrap">
+ <div class="section-head"><h2 id="skills-heading">Skills I build &amp; refine</h2><span class="count">Public preview · MIT · 18 Oct 2026</span></div>
+ <div class="skills-intro"><p class="skills-lead">วิธีทำงานกับ AI ที่เขียนไว้ให้ใช้ซ้ำ</p><p>Skill คือชุดคำแนะนำและไฟล์ประกอบที่ช่วยให้ AI ทำงานประเภทหนึ่งอย่างเป็นขั้นตอน เช่น วางแผน ค้นคว้า เขียนโค้ด หรือตรวจสคริปต์ เลือกจากงานที่ต้องการ แล้วดูตัวอย่าง ผลที่คาดหวัง และหลักฐานก่อนใช้</p></div>
+ <p class="skills-preview">เปิดให้ใช้และต่อยอดภายใต้ MIT: เลือก skill ที่ตรงกับงาน อ่านคำสั่งและวิธีใช้ แล้วดาวน์โหลด ZIP ไปทดลองกับงานจำลองก่อน ผลประเมินเดิมใช้กับรุ่นและโจทย์ที่ระบุเท่านั้น</p>
+ <div class="skill-list"><article class="skill-row" id="skill-second-brain-agents-plan">
+ <div class="skill-name"><h3>Planning</h3><code>second-brain-agents-plan</code><span class="skill-version">3.2.0-preview.1 · MIT · ฉบับทดลอง</span></div>
+ <div class="skill-copy"><h4>วางแผนให้ตัดสินใจและส่งต่อได้</h4><p>เปลี่ยนไอเดียกว้าง ๆ ให้เป็นทางเลือกที่เทียบกันได้ พร้อมข้อแลกเปลี่ยนและขั้นถัดไปที่ชัดเจน</p>
+ <p class="skill-output">สิ่งที่ได้: ทางเลือก เหตุผล ข้อจำกัด และแผนส่งต่อ</p>
+ <details><summary>ดูตัวอย่างและหลักฐาน — Planning</summary><div class="skill-detail">
+ <h5>ลองสั่งแบบนี้</h5><blockquote>ช่วยวางแผนระบบจองห้องประชุมสำหรับทีมเล็ก เปรียบเทียบใช้ของเดิมกับสร้างเอง แล้วส่งต่อสิ่งที่ตัดสินใจแล้ว</blockquote>
+ <h5>ผลประเมินมีขอบเขตแค่ไหน</h5><p>รุ่น 3.2.0 ได้ 10/10 ใน 4 outputs ใหม่ (2 โจทย์ × 2 รอบ) ในการเปรียบเทียบกับ 3.3.0; รุ่น 3.3.0 ได้เฉลี่ย 9.17/10 ในกลุ่มเดียวกัน</p><p>การตรวจแบบปิดชื่อรุ่นโดย AI และการตรวจข้อเท็จจริงภายหลัง; ไม่ใช่ผู้ตรวจภายนอกหรือผู้ใช้จริง การแยก filesystem ไม่สมบูรณ์ และไม่มี telemetry ต้นทุน รุ่น 3.3.0 เคยมี critical failure 1 output ในกลุ่ม historical ซึ่งแยกจาก 4 outputs ใหม่นี้</p>
+ <p>Source review ของรุ่น local 3.2.0: G 8.25/10 · F 8.75/10 (F คือความเหมาะกับเจ้าของเว็บ; provisional) โดย AI ที่ช่วยผู้พัฒนา จึงไม่ใช่ผู้รับรองอิสระ</p>
+ <p>ขอบเขต planning ชัดและใช้เดี่ยวได้; คำสั่งค่อนข้างยาวและยังมีความตึงระหว่างรูปแบบส่งมอบกับการเขียนไฟล์ คะแนนนี้ยังไม่ใช่ผลทดสอบฉบับ preview</p>
+ <p>ตัวอย่างประวัติ 17 sessions: พบ path ของ skill ใน 4 sessions และคำขอเรียกชัดเจนใน 4 sessions; เป็นสัญญาณการใช้งาน ไม่ใช่จำนวนรันสำเร็จ</p>
+ <p>ฉบับ preview เปลี่ยน label รุ่น และบางตัวปรับ path/dependency ให้พกพาได้; ยังต้องทดลองบน host ของผู้ใช้</p>
+ <div class="skill-links"><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/second-brain-agents-plan/SKILL.md" target="_blank" rel="noopener">อ่านคำสั่ง</a><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/second-brain-agents-plan/README.md" target="_blank" rel="noopener">วิธีใช้และข้อจำกัด</a><a href="skills/downloads/second-brain-agents-plan.zip" download>ดาวน์โหลด ZIP</a></div>
+ </div></details></div></article><article class="skill-row" id="skill-solution-research">
+ <div class="skill-name"><h3>Research</h3><code>solution-research</code><span class="skill-version">3.1.0-preview.1 · MIT · ฉบับทดลอง</span></div>
+ <div class="skill-copy"><h4>หาวิธีที่เหมาะ ก่อนเริ่มสร้าง</h4><p>สำรวจวิธีทำหลายทาง ตรวจของที่มีอยู่แล้ว และอ้างอิงหลักฐานก่อนแนะนำให้ลงทุนลงแรง</p>
+ <p class="skill-output">สิ่งที่ได้: วิธีที่ทำได้ ข้อจำกัด แหล่งอ้างอิง และสิ่งที่ต้องตรวจเพิ่ม</p>
+ <details><summary>ดูตัวอย่างและหลักฐาน — Research</summary><div class="skill-detail">
+ <h5>ลองสั่งแบบนี้</h5><blockquote>ต้องส่งข้อมูลระหว่างสองระบบทุกวัน มีวิธีใช้ของเดิมหรือ connector แทนเขียนใหม่ไหม ช่วยเทียบข้อจำกัดและค่าใช้จ่าย</blockquote>
+ <h5>ผลประเมินมีขอบเขตแค่ไหน</h5><p>รุ่น 3.1.0 ได้ 10/10 ในโจทย์ research 2 ข้อ ข้อละ 1 trial; baseline 3.0.0 ได้ 7/10 และ 8/10 มี negative control ร่วมที่ทั้งสองรุ่นได้ 10/10</p><p>โจทย์เขียนโดยผู้แก้ skill; AI grader ปิดบังได้บางส่วนและมี ceiling effect ทดสอบบน host ที่มี discovery tools; fallback บน host อื่นยังไม่พิสูจน์ ยอด subagent tokens ของชุดทดลองรวม 4 cases เพิ่ม 5.6% จึงไม่อ้างว่าประหยัด</p>
+ <p>Source review ของรุ่น local 3.1.0: G 8.50/10 · F 8.62/10 (F คือความเหมาะกับเจ้าของเว็บ; provisional) โดย AI ที่ช่วยผู้พัฒนา จึงไม่ใช่ผู้รับรองอิสระ</p>
+ <p>สำรวจหลาย family และตรวจข้อโต้แย้งได้; workflow ระดับ standard หนักสำหรับคำถามแคบ จึงต้องเลือกระดับให้ถูก คะแนนนี้ยังไม่ใช่ผลทดสอบฉบับ preview</p>
+ <p>ตัวอย่างประวัติ 17 sessions: พบ path ของ skill ใน 1 sessions และคำขอเรียกชัดเจนใน 1 sessions; เป็นสัญญาณการใช้งาน ไม่ใช่จำนวนรันสำเร็จ</p>
+ <p>ฉบับ preview เปลี่ยน label รุ่น และบางตัวปรับ path/dependency ให้พกพาได้; ยังต้องทดลองบน host ของผู้ใช้</p>
+ <div class="skill-links"><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/solution-research/SKILL.md" target="_blank" rel="noopener">อ่านคำสั่ง</a><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/solution-research/README.md" target="_blank" rel="noopener">วิธีใช้และข้อจำกัด</a><a href="skills/downloads/solution-research.zip" download>ดาวน์โหลด ZIP</a></div>
+ </div></details></div></article><article class="skill-row" id="skill-second-brain-coding">
+ <div class="skill-name"><h3>Coding</h3><code>second-brain-coding</code><span class="skill-version">3.1.0-preview.1 · MIT · ฉบับทดลอง</span></div>
+ <div class="skill-copy"><h4>แก้ที่ต้นเหตุ พร้อมหลักฐานว่าทำงาน</h4><p>ไล่เส้นทางโค้ดจริง ใช้ของเดิมก่อน เพิ่มเฉพาะที่จำเป็น และส่งมอบพร้อมการตรวจที่เหมาะกับความเสี่ยง</p>
+ <p class="skill-output">สิ่งที่ได้: การแก้ที่มีขอบเขตชัด พร้อมผลตรวจและสิ่งที่ยังไม่พิสูจน์</p>
+ <details><summary>ดูตัวอย่างและหลักฐาน — Coding</summary><div class="skill-detail">
+ <h5>ลองสั่งแบบนี้</h5><blockquote>แก้การตรวจข้อมูลใน helper ที่ CLI และ API ใช้ร่วมกัน โดยรักษาค่า 0 ที่ถูกต้อง และทิ้ง runnable check ไว้</blockquote>
+ <h5>ผลประเมินมีขอบเขตแค่ไหน</h5><p>รุ่น local 3.1.0: local artifact checks ผ่าน T1/T2/T5; อีก 5 scenarios เป็น walkthrough ที่ผู้แก้เห็นโจทย์ ไม่ใช่ fresh agent trials</p><p>ยังไม่มี A/B ที่เทียบเท่ากัน ไม่มี human comprehension, cold handoff หรือ whole-run token savings ที่วัดได้ ฉบับ public ปรับการตั้งค่า vault จึงยังไม่รับคะแนนพฤติกรรมของรุ่น local โดยอัตโนมัติ</p>
+ <p>Source review ของรุ่น local 3.1.0: G 8.88/10 · F 9.00/10 (F คือความเหมาะกับเจ้าของเว็บ; provisional) โดย AI ที่ช่วยผู้พัฒนา จึงไม่ใช่ผู้รับรองอิสระ</p>
+ <p>สอดคล้องกับ diff เล็กและ root cause; local รุ่นเดิมพึ่ง vault ส่วนตัว ฉบับเตรียมเผยแพร่ต้องใช้ได้เมื่อไม่มี vault คะแนนนี้ยังไม่ใช่ผลทดสอบฉบับ preview</p>
+ <p>ตัวอย่างประวัติ 17 sessions: พบ path ของ skill ใน 9 sessions และคำขอเรียกชัดเจนใน 0 sessions; เป็นสัญญาณการใช้งาน ไม่ใช่จำนวนรันสำเร็จ</p>
+ <p>ฉบับ preview เปลี่ยน label รุ่น และบางตัวปรับ path/dependency ให้พกพาได้; ยังต้องทดลองบน host ของผู้ใช้</p>
+ <div class="skill-links"><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/second-brain-coding/SKILL.md" target="_blank" rel="noopener">อ่านคำสั่ง</a><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/second-brain-coding/README.md" target="_blank" rel="noopener">วิธีใช้และข้อจำกัด</a><a href="skills/downloads/second-brain-coding.zip" download>ดาวน์โหลด ZIP</a></div>
+ </div></details></div></article><article class="skill-row" id="skill-skill-evaluate">
+ <div class="skill-name"><h3>Evaluation</h3><code>skill-evaluate</code><span class="skill-version">3.0.0-preview.1 · MIT · ฉบับทดลอง</span></div>
+ <div class="skill-copy"><h4>ประเมิน skill โดยไม่หลงคะแนน</h4><p>แยกคุณภาพคำสั่ง ความเหมาะกับเจ้าของงาน และผลทดลองจริง เพื่อเลือกว่าจะใช้ ปรับ หรือหยุดใช้</p>
+ <p class="skill-output">สิ่งที่ได้: เหตุผลในการใช้หรือปรับ พร้อมขอบเขตความน่าเชื่อถือ</p>
+ <details><summary>ดูตัวอย่างและหลักฐาน — Evaluation</summary><div class="skill-detail">
+ <h5>ลองสั่งแบบนี้</h5><blockquote>ประเมิน skill นี้จาก source และหลักฐานที่มี แยกสิ่งที่ยังไม่ได้ทดสอบ และอย่าสรุปว่า production-ready จากคะแนนสูง</blockquote>
+ <h5>ผลประเมินมีขอบเขตแค่ไหน</h5><p>รุ่น 3.0.0 มี synthetic smoke 1 case ได้ 10/10 ในรายงานเดิม โดย agent เดียวสร้างและให้คะแนนเอง</p><p>ไม่ใช่การรับรองจากบุคคลที่สาม ตัวประเมินและรายงานนี้อยู่ใน workflow เดียวกับผู้พัฒนา; ไม่มี independent certification หรือผล production</p>
+ <p>Source review ของรุ่น local 3.0.0: G 8.50/10 · F 8.62/10 (F คือความเหมาะกับเจ้าของเว็บ; provisional) โดย AI ที่ช่วยผู้พัฒนา จึงไม่ใช่ผู้รับรองอิสระ</p>
+ <p>แยก static/behavior และ critical failures ชัด; การประเมินหลายมิติมีต้นทุน ต้อง reuse หลักฐานและจำกัด trial budget คะแนนนี้ยังไม่ใช่ผลทดสอบฉบับ preview</p>
+ <p>ตัวอย่างประวัติ 17 sessions: พบ path ของ skill ใน 0 sessions และคำขอเรียกชัดเจนใน 0 sessions; เป็นสัญญาณการใช้งาน ไม่ใช่จำนวนรันสำเร็จ</p>
+ <p>ฉบับ preview เปลี่ยน label รุ่น และบางตัวปรับ path/dependency ให้พกพาได้; ยังต้องทดลองบน host ของผู้ใช้</p>
+ <div class="skill-links"><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/skill-evaluate/SKILL.md" target="_blank" rel="noopener">อ่านคำสั่ง</a><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/skill-evaluate/README.md" target="_blank" rel="noopener">วิธีใช้และข้อจำกัด</a><a href="skills/downloads/skill-evaluate.zip" download>ดาวน์โหลด ZIP</a></div>
+ </div></details></div></article><article class="skill-row" id="skill-gas-review">
+ <div class="skill-name"><h3>Google Apps Script</h3><code>gas-review</code><span class="skill-version">3.1.0-preview.1 · MIT · ฉบับทดลอง</span></div>
+ <div class="skill-copy"><h4>ตรวจ Apps Script ก่อนเจอปัญหาตอนรัน</h4><p>ตรวจ API ของ host รูปร่าง event ข้อมูลว่าง และการเปิดเผยข้อมูลใน log ก่อนนำสคริปต์ไปใช้</p>
+ <p class="skill-output">สิ่งที่ได้: จุดที่ต้องแก้พร้อมเหตุผล และรายการที่ต้องทดลองใน Apps Script จริง</p>
+ <details><summary>ดูตัวอย่างและหลักฐาน — Google Apps Script</summary><div class="skill-detail">
+ <h5>ลองสั่งแบบนี้</h5><blockquote>ตรวจ onFormSubmit นี้ว่าใช้ event ของ Google Forms หรือ Google Sheets ถูกหรือไม่ และมีข้อมูลลับหลุดใน log ไหม</blockquote>
+ <h5>ผลประเมินมีขอบเขตแค่ไหน</h5><p>รุ่น 3.0.0 เคยมี self-graded smoke 1 case; รุ่นที่ติดตั้งปัจจุบัน 3.1.0 ยังไม่มี fresh behavioral score ที่เทียบได้ในหลักฐานชุดนี้</p><p>คะแนนรุ่นเก่าไม่ถ่ายมารุ่น 3.1.0 หรือฉบับ public; ยังไม่ได้รัน Save, trigger, permission และ quota ใน host จริง</p>
+ <p>Source review ของรุ่น local 3.1.0: G 8.75/10 · F 9.00/10 (F คือความเหมาะกับเจ้าของเว็บ; provisional) โดย AI ที่ช่วยผู้พัฒนา จึงไม่ใช่ผู้รับรองอิสระ</p>
+ <p>trigger เฉพาะ host และแยก static/live ชัด; checklist ต้องตรวจ official API สดเมื่อไม่แน่ใจและยังมีโอกาส false positive คะแนนนี้ยังไม่ใช่ผลทดสอบฉบับ preview</p>
+ <p>ตัวอย่างประวัติ 17 sessions: พบ path ของ skill ใน 4 sessions และคำขอเรียกชัดเจนใน 0 sessions; เป็นสัญญาณการใช้งาน ไม่ใช่จำนวนรันสำเร็จ</p>
+ <p>ฉบับ preview เปลี่ยน label รุ่น และบางตัวปรับ path/dependency ให้พกพาได้; ยังต้องทดลองบน host ของผู้ใช้</p>
+ <div class="skill-links"><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/gas-review/SKILL.md" target="_blank" rel="noopener">อ่านคำสั่ง</a><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/gas-review/README.md" target="_blank" rel="noopener">วิธีใช้และข้อจำกัด</a><a href="skills/downloads/gas-review.zip" download>ดาวน์โหลด ZIP</a></div>
+ </div></details></div></article><article class="skill-row" id="skill-office-script-review">
+ <div class="skill-name"><h3>Office Scripts</h3><code>office-script-review</code><span class="skill-version">3.1.0-preview.1 · MIT · ฉบับทดลอง</span></div>
+ <div class="skill-copy"><h4>ตรวจ Office Scripts ให้ตรงกับ Excel</h4><p>จับความสับสนระหว่าง Office.js กับ ExcelScript รวมถึงสัญญา Run script และขอบเขตที่ต้องวัดบน Power Automate</p>
+ <p class="skill-output">สิ่งที่ได้: ปัญหา API/type ที่พบ และสิ่งที่ยังต้องพิสูจน์บน workbook จริง</p>
+ <details><summary>ดูตัวอย่างและหลักฐาน — Office Scripts</summary><div class="skill-detail">
+ <h5>ลองสั่งแบบนี้</h5><blockquote>ตรวจ Office Script นี้ว่ามีการเรียก Office.js ปนหรือไม่ และแยกผล static review จากการรัน Power Automate จริง</blockquote>
+ <h5>ผลประเมินมีขอบเขตแค่ไหน</h5><p>รุ่น 3.0.0 เคยมี self-graded smoke 1 case และ static gate ของ deleteRowsAt; รุ่นปัจจุบัน 3.1.0 ยังไม่มี fresh behavioral score ที่เทียบได้ในหลักฐานชุดนี้</p><p>ฉบับ public ตัด optional formatter ที่อยู่นอกหน้าที่ review; static check ไม่พิสูจน์ editor compilation, workbook state หรือเวลารัน cloud</p>
+ <p>Source review ของรุ่น local 3.1.0: G 8.62/10 · F 9.00/10 (F คือความเหมาะกับเจ้าของเว็บ; provisional) โดย AI ที่ช่วยผู้พัฒนา จึงไม่ใช่ผู้รับรองอิสระ</p>
+ <p>มี API authority และ false-positive guard; runtime/formatting ทำให้คำสั่งยาวและต้องแยกหลักฐาน cloud จาก local คะแนนนี้ยังไม่ใช่ผลทดสอบฉบับ preview</p>
+ <p>ตัวอย่างประวัติ 17 sessions: พบ path ของ skill ใน 1 sessions และคำขอเรียกชัดเจนใน 0 sessions; เป็นสัญญาณการใช้งาน ไม่ใช่จำนวนรันสำเร็จ</p>
+ <p>ฉบับ preview เปลี่ยน label รุ่น และบางตัวปรับ path/dependency ให้พกพาได้; ยังต้องทดลองบน host ของผู้ใช้</p>
+ <div class="skill-links"><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/office-script-review/SKILL.md" target="_blank" rel="noopener">อ่านคำสั่ง</a><a href="https://github.com/mingssii2/mingssii2.github.io/blob/main/skills/office-script-review/README.md" target="_blank" rel="noopener">วิธีใช้และข้อจำกัด</a><a href="skills/downloads/office-script-review.zip" download>ดาวน์โหลด ZIP</a></div>
+ </div></details></div></article></div>
+ <details class="skills-method" id="skills-evaluation"><summary>อ่านคะแนนอย่างไร และทำไมถึงเปิดเผยข้อจำกัด</summary><div class="skill-detail">
+ <p><strong>ดูผลงานก่อนคะแนน</strong> ตัวอย่างช่วยให้เห็นว่า skill มีไว้แก้ปัญหาอะไร ส่วนคะแนนช่วยบอกว่าได้ตรวจเรื่องใดไปแล้ว</p>
+ <p><strong>G</strong> คือคุณภาพคำสั่ง: trigger, ความรัดกุม, การประกอบกับของอื่น และความซับซ้อน <strong>F</strong> คือความเหมาะกับเจ้าของเว็บ: งานหลัก แรงเสียดทาน เครื่องมือ และรูปแบบทีม แต่ละแกนเฉลี่ย 4 มิติเท่ากัน F สูงไม่ได้หมายความว่าเหมาะกับทุกคน</p>
+ <p><strong>Behavior</strong> คือผลทำโจทย์ที่ระบุ ต้องอ่านจำนวน trials รุ่น ผู้ตรวจ และข้อจำกัดแยกจาก G/F คะแนนเต็มในกลุ่มเล็กไม่ใช่อัตราสำเร็จทั่วไป มี critical failure ต้องแสดง แม้ค่าเฉลี่ยสูง</p>
+ <p>รายงานนี้จัดทำด้วย AI ใน workflow ของผู้พัฒนา ไม่ใช่ certification จากองค์กรภายนอก ยังไม่มีหลักฐานว่าทุกคนใช้แล้วดีขึ้น หรือประหยัดเวลา/token เท่าใด</p>
+ <p>สัญญาณใช้บ่อยมาจาก summary เดิมวันที่ 4 ต.ค. 2026 โดยตัด 3 sessions งานประเมินออก เหลือ 17 sessions; ไม่เผยแพร่บทสนทนา path ส่วนตัว หรือข้อมูลโครงการ งานประเมินที่ไม่พบใน sample ยังอาจถูกใช้ช่วงอื่น</p>
+ <p><a href="skills/evidence.json">ดูข้อมูลคะแนน มิติ รุ่น และ hashes</a> · <a href="skills/EVALUATION.md">อ่านวิธีประเมินและสิ่งที่ยังไม่ทดสอบ</a></p>
+ </div></details>
+ <div class="skills-license"><h3>ใช้และต่อยอดได้ภายใต้ MIT</h3><p>ชุด Skills นี้อนุญาตให้ใช้ ดัดแปลง แจก และใช้เชิงพาณิชย์ได้ โดยเก็บ copyright และข้อความ license ไว้ แต่ละ ZIP มี LICENSE รวมอยู่ด้วย เงื่อนไขนี้ครอบคลุมไฟล์ในชุด Skills; เอกสารภายนอกที่อ้างถึงยังเป็นสิทธิ์ของเจ้าของเดิม</p><a href="skills/LICENSE">อ่าน MIT license ของชุด Skills</a></div>
+ </div></section>
 
 <section class="work" id="work"><div class="wrap">
   <div class="section-head"><h2>All work</h2><span class="count" id="count" aria-live="polite"></span></div>

@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local source review and historical results, not preview behavior validation or independent certification",
+  "skill": {
+    "id": "second-brain-coding",
+    "title": "แก้ที่ต้นเหตุ พร้อมหลักฐานว่าทำงาน",
+    "role": "Coding",
+    "description": "ไล่เส้นทางโค้ดจริง ใช้ของเดิมก่อน เพิ่มเฉพาะที่จำเป็น และส่งมอบพร้อมการตรวจที่เหมาะกับความเสี่ยง",
+    "example": "แก้การตรวจข้อมูลใน helper ที่ CLI และ API ใช้ร่วมกัน โดยรักษาค่า 0 ที่ถูกต้อง และทิ้ง runnable check ไว้",
+    "result": "การแก้ที่มีขอบเขตชัด พร้อมผลตรวจและสิ่งที่ยังไม่พิสูจน์",
+    "G": [
+      8.5,
+      9,
+      9,
+      9
+    ],
+    "F": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "refs": 9,
+    "explicit": 0,
+    "rationale": "สอดคล้องกับ diff เล็กและ root cause; local รุ่นเดิมพึ่ง vault ส่วนตัว ฉบับเตรียมเผยแพร่ต้องใช้ได้เมื่อไม่มี vault",
+    "behavior": "รุ่น local 3.1.0: local artifact checks ผ่าน T1/T2/T5; อีก 5 scenarios เป็น walkthrough ที่ผู้แก้เห็นโจทย์ ไม่ใช่ fresh agent trials",
+    "limits": "ยังไม่มี A/B ที่เทียบเท่ากัน ไม่มี human comprehension, cold handoff หรือ whole-run token savings ที่วัดได้ ฉบับ public ปรับการตั้งค่า vault จึงยังไม่รับคะแนนพฤติกรรมของรุ่น local โดยอัตโนมัติ",
+    "source": "benchmarks/second-brain-coding-2026-10-15/evaluation.json",
+    "tested": "3.1.0 local",
+    "expected": "แก้ helper ร่วมแทนแปะ guard ทุก caller; คง 0; ปฏิเสธ input ผิด; check ต้องจับ defect เดิมได้",
+    "local_version": "3.1.0",
+    "source_sha256": "dd34cbbbe69e229e19deca14902f95854106a234c4c359097660cd210b288a42",
+    "public_version": "3.1.0-preview.1",
+    "G_mean": 8.875,
+    "F_mean": 9.0,
+    "verdict": "Adopt (provisional; user fit only)",
+    "public_sha256": "38d468b57f6029a038985d69a279ec47624eae91ac310b292e5e45cb9197fb53",
+    "adaptation": [
+      "SKILL.md"
+    ],
+    "license": "MIT",
+    "hash_scope": "Bundled instruction/reference/agent files and LICENSE; generated README/EVIDENCE are excluded to avoid recursive hashes.",
+    "package_sha256": {
+      "LICENSE": "d1ea2f9718cd1e7728c07cd442ed4574c4ea45be8a03bb2d628d498fadcd2547",
+      "SKILL.md": "38d468b57f6029a038985d69a279ec47624eae91ac310b292e5e45cb9197fb53",
+      "agents/openai.yaml": "dd0b5e3b83dcc940d56692d6e6a9bf579e1c0e16aa932a9f523f7e19eb8bd485",
+      "references/coding-principle-map.md": "0b5f2f37ce6274f665cc0e5f918b661eeb2e3c68ab6c9522bf1aaa583d92bb54",
+      "references/compliance-check.md": "13f6fd2d7d1dd87b9ce003dd189f3f85a0f6be276f1ed66a61b927a16905685e",
+      "references/project-kickoff.md": "337f50bd86a7b5987c6289760a00089b2650a995ba3056275fabd5b12a69f479"
+    }
+  }
+}
