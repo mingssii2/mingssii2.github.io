@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mingssii2 — Apps &amp; work</title>
+<meta name="description" content="แอปเล็ก ๆ ที่เปิดในเบราว์เซอร์ได้ทันที และผลงานทั้งหมดบน GitHub ของ mingssii2">
+<meta property="og:title" content="mingssii2 — Apps & work">
+<meta property="og:description" content="Fair Wheel, PAD Flow Cleaner and everything else I've built on GitHub.">
+<meta property="og:image" content="https://mingssii2.github.io/assets/shot-wheel.jpg">
+<meta property="og:url" content="https://mingssii2.github.io/">
+<meta name="theme-color" content="#0f1628">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="em-wheel" viewBox="-10 -14 220 224">
+    <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="66"/><circle cx="100" cy="100" r="9"/>
+    <path d="M100 100L192 100M100 100L131.5 186.5M100 100L61.1 183.4M100 100L9.4 84M100 100L68.5 13.5M100 100L146 20.3"/>
+    <path d="M92 -8L108 -8L100 10Z"/>
+  </symbol>
+  <symbol id="em-flow" viewBox="0 0 200 200">
+    <rect x="66" y="8" width="68" height="26"/><path d="M100 34V58"/><path d="M100 58L130 82L100 106L70 82Z"/>
+    <path d="M70 82H34V128M130 82H166V128"/><rect x="6" y="128" width="56" height="24"/><rect x="138" y="128" width="56" height="24"/>
+    <path d="M34 152V172H166V152M100 172V186"/><circle cx="100" cy="190" r="4"/>
+  </symbol>
+</svg>
+
+<nav class="nav" aria-label="Main"><div class="wrap">
+  <a class="wordmark" href="#top">mingssii2</a>
+  <ul><li><a href="#featured">Apps</a></li><li><a href="#work">All work</a></li><li class="wide"><a href="https://github.com/mingssii2" target="_blank" rel="noopener">GitHub ↗</a></li></ul>
+</div></nav>
+
+<!-- Hero · Tesla-style showroom: one app per slide, centred name, product in the middle, two buttons -->
+<header class="hero-t" id="top">
+  <div class="slides">
+    <div class="slide on" data-bg="var(--wheel-bg)" data-acc="var(--wheel-ac)">
+      <div class="t-head"><h1>Fair Wheel</h1><p class="th">วงล้อสุ่มที่พิสูจน์ความแฟร์ได้ · ทดสอบ χ² 100,000 รอบ</p></div>
+      <div class="t-stage"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>mingssii2.github.io/wheel</span></div><img src="assets/shot-wheel.jpg" width="799" height="596" alt="Fair Wheel app screen"></div></div>
+      <div class="t-acts"><a class="t-btn main" href="https://mingssii2.github.io/wheel/" target="_blank" rel="noopener">Open app</a><a class="t-btn alt" href="https://github.com/mingssii2/wheel" target="_blank" rel="noopener">View source</a></div>
+    </div>
+    <div class="slide" data-bg="var(--pad-bg)" data-acc="var(--pad-ac)" inert>
+      <div class="t-head"><h2 class="h1">PAD Flow Cleaner</h2><p class="th">ทำ flow ของ Power Automate Desktop ให้สะอาดและปลอดภัย · รันในเบราว์เซอร์ 100%</p></div>
+      <div class="t-stage"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>mingssii2.github.io/pad-flow-cleaner</span></div><img src="assets/shot-pad.jpg" width="799" height="609" alt="PAD Flow Cleaner app screen"></div></div>
+      <div class="t-acts"><a class="t-btn main" href="https://mingssii2.github.io/pad-flow-cleaner/" target="_blank" rel="noopener">Open app</a><a class="t-btn alt" href="https://github.com/mingssii2/pad-flow-cleaner" target="_blank" rel="noopener">View source</a></div>
+    </div>
+  </div>
+  <div class="t-dots" role="group" aria-label="Choose app">
+    <button type="button" aria-label="Fair Wheel" aria-pressed="true"></button>
+    <button type="button" aria-label="PAD Flow Cleaner" aria-pressed="false"></button>
+  </div>
+</header>
+
+<section class="featured" id="featured"><div class="wrap">
+  <div class="section-head"><h2>Featured apps</h2><span class="mono">Live · free · no sign-up</span></div>
+  <article class="feature wheel">
+    <svg class="mark em" viewBox="0 0 200 200" aria-hidden="true"><use href="#em-wheel"/></svg>
+    <div class="copy">
+      <span class="kicker">Live · Oct 2026</span>
+      <h3>Fair Wheel</h3>
+      <p class="th">วงล้อสุ่มที่พิสูจน์ความแฟร์ได้ ใส่น้ำหนักแต่ละตัวเลือกได้ และทดสอบ χ² 100,000 รอบในแอป</p>
+      <ul><li>Web Crypto CSPRNG</li><li>0 dependencies</li><li>Share via link</li></ul>
+      <a class="go" href="https://mingssii2.github.io/wheel/" target="_blank" rel="noopener">Spin the wheel →</a>
+      <a class="src" href="https://github.com/mingssii2/wheel" target="_blank" rel="noopener">View source on GitHub</a>
+    </div>
+    <div class="browser"><div class="bar"><i></i><i></i><i></i><span>mingssii2.github.io/wheel</span></div>
+      <img src="assets/shot-wheel.jpg" width="799" height="596" alt="Fair Wheel: a weighted wheel with six choices and a weight editor" loading="lazy"></div>
+  </article>
+  <article class="feature pad">
+    <svg class="mark em" viewBox="0 0 200 200" aria-hidden="true"><use href="#em-flow"/></svg>
+    <div class="copy">
+      <span class="kicker">Live · Oct 2026</span>
+      <h3>PAD Flow Cleaner</h3>
+      <p class="th">วาง flow ของ Power Automate Desktop แล้วได้เวอร์ชันที่สะอาด ปิดข้อมูลลับ พร้อม flowchart</p>
+      <ul><li>100% in browser</li><li>Redacts secrets</li><li>MIT</li></ul>
+      <a class="go" href="https://mingssii2.github.io/pad-flow-cleaner/" target="_blank" rel="noopener">Clean a flow →</a>
+      <a class="src" href="https://github.com/mingssii2/pad-flow-cleaner" target="_blank" rel="noopener">View source on GitHub</a>
+    </div>
+    <div class="browser"><div class="bar"><i></i><i></i><i></i><span>mingssii2.github.io/pad-flow-cleaner</span></div>
+      <img src="assets/shot-pad.jpg" width="799" height="609" alt="PAD Flow Cleaner: a paste box for a Power Automate Desktop flow" loading="lazy"></div>
+  </article>
+</div></section>
+
+<section class="work" id="work"><div class="wrap">
+  <div class="section-head"><h2>All work</h2><span class="count" id="count" aria-live="polite"></span></div>
+  <div class="toolbar">
+    <label class="search" for="q">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <span class="sr">Search work</span>
+      <input id="q" type="search" placeholder="ค้นหาชื่อ ภาษา หรือคำอธิบาย" autocomplete="off">
+    </label>
+    <div class="seg" role="group" aria-label="Filter">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="app" aria-pressed="false">Live apps</button>
+      <button type="button" data-filter="repo" aria-pressed="false">Repos</button>
+    </div>
+    <div class="seg" role="group" aria-label="View">
+      <button type="button" data-view="cards" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Cards</button>
+      <button type="button" data-view="index" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Index</button>
+    </div>
+  </div>
+  <div id="results"></div>
+</div></section>
+
+<footer class="foot-site"><div class="wrap"><span class="mono">© 2026 mingssii2</span><a class="mono" href="https://github.com/mingssii2" target="_blank" rel="noopener">github.com/mingssii2 ↗</a></div></footer>
+
+</body>
+</html>
