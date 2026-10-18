@@ -7,9 +7,9 @@ const AUTO_INDEX_AT = 12; // switch to the dense index view once there are more 
 // Hand-written copy and screenshots for repos that deserve more than the GitHub description.
 const CURATED = {
   'wheel': { title: 'Fair Wheel', thumb: 'assets/shot-wheel.jpg',
-    description: 'วงล้อสุ่มที่พิสูจน์ความแฟร์ได้ สุ่มด้วย CSPRNG และทดสอบ χ² 100,000 รอบในแอป' },
+    description: 'สุ่มตัวเลือก ปรับน้ำหนัก และแชร์ชุดตัวเลือกให้ทีม เหมาะกับกิจกรรมหรือการตัดสินใจเล็ก ๆ' },
   'pad-flow-cleaner': { title: 'PAD Flow Cleaner', thumb: 'assets/shot-pad.jpg',
-    description: 'ทำความสะอาด ปิดข้อมูลลับ และแปลง flow ของ Power Automate Desktop เป็นแผนภาพ' },
+    description: 'อ่าน Power Automate Desktop flow เป็นภาพ พร้อมสรุปขั้นตอนและข้อความฉบับย่อก่อนส่งต่อ' },
 };
 const HIDDEN = new Set([`${USER}.github.io`]);
 
@@ -19,34 +19,29 @@ const SNAPSHOT = [
   { name: 'pad-flow-cleaner', language: 'HTML', pushed_at: '2026-10-16T10:21:16Z', has_pages: true, homepage: 'https://mingssii2.github.io/pad-flow-cleaner/', description: '' },
   { name: 'stock-dtw-lower-bound-evaluation', language: 'Python', pushed_at: '2026-04-22T15:21:31Z', has_pages: false, homepage: null,
     description: 'Reproducible DTW lower-bound evaluation for stock time-series similarity search' },
-  { name: 'Berkdi', language: 'TypeScript', pushed_at: '2026-04-03T10:00:36Z', has_pages: false, homepage: null, description: 'เบิกได้' },
   { name: 'data-science-test', language: 'Python', pushed_at: '2026-02-12T20:38:14Z', has_pages: false, homepage: null, description: 'Personal test' },
 ];
 
 const LANG_VAR = { JavaScript: '--lang-js', HTML: '--lang-html', Python: '--lang-py', TypeScript: '--lang-ts' };
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fmt = iso => { const [y, m, d] = iso.split('-'); return d + ' ' + MONTHS[+m - 1] + ' ' + y; };
-const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ===== Hero: showroom carousel ===== */
-(function () {
-  const hero = document.getElementById('top');
-  const slides = [...hero.querySelectorAll('.slide')];
-  const dots = [...hero.querySelectorAll('.t-dots button')];
-  let cur = 0, timer = null;
-  function go(i) {
-    cur = (i + slides.length) % slides.length;
-    slides.forEach((s, j) => { s.classList.toggle('on', j === cur); s.toggleAttribute('inert', j !== cur); });
-    dots.forEach((d, j) => d.setAttribute('aria-pressed', j === cur));
-    hero.style.setProperty('--stage-bg', slides[cur].dataset.bg);
-    hero.style.setProperty('--acc', slides[cur].dataset.acc);
-  }
-  function auto() { clearInterval(timer); if (!reduceMotion) timer = setInterval(() => { if (!document.hidden) go(cur + 1); }, 7000); }
-  dots.forEach((d, j) => d.addEventListener('click', () => { go(j); auto(); }));
-  hero.addEventListener('mouseenter', () => clearInterval(timer));
-  hero.addEventListener('mouseleave', auto);
-  go(0); auto();
-})();
+/* ===== Copy starter prompts ===== */
+document.querySelectorAll('[data-copy-target]').forEach(button => {
+  button.hidden = false;
+  button.addEventListener('click', async () => {
+    const prompt = document.getElementById(button.dataset.copyTarget);
+    const status = document.getElementById(button.getAttribute('aria-describedby'));
+    button.disabled = true;
+    try {
+      await navigator.clipboard.writeText(prompt.textContent);
+      status.textContent = 'คัดลอกแล้ว นำไปใช้กับ agent ที่เพิ่ม skill นี้แล้วได้เลย';
+    } catch {
+      status.textContent = 'คัดลอกอัตโนมัติไม่ได้ เลือกข้อความคำสั่งแล้วคัดลอกเองได้เลย';
+    } finally {
+      button.disabled = false;
+    }
+  });
+});
 
 /* ===== All work ===== */
 function toItem(r) {
@@ -100,10 +95,10 @@ function render() {
   const total = state.items.length;
   const view = state.view || (total > AUTO_INDEX_AT ? 'index' : 'cards');
   document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === view));
-  document.getElementById('count').textContent = list.length + ' of ' + total + ' items'
+  document.getElementById('count').textContent = list.length + ' จาก ' + total + ' ผลงาน'
     + (state.source === 'offline' ? ' · GitHub ไม่ตอบสนอง แสดงข้อมูลสำรอง' : '');
   const out = document.getElementById('results');
-  if (!list.length) { out.replaceChildren(el('p', { class: 'empty th' }, 'ไม่พบงานที่ตรงกับ “' + state.q + '” ลองคำอื่น หรือเลือก All')); return; }
+  if (!list.length) { out.replaceChildren(el('p', { class: 'empty th' }, 'ไม่พบงานที่ตรงกับ “' + state.q + '” ลองคำอื่น หรือเลือกทั้งหมด')); return; }
 
   if (view === 'cards') {
     const grid = el('div', { class: 'cards' });
@@ -111,7 +106,7 @@ function render() {
       const a = el('a', { class: 'card', href: href(p), target: '_blank', rel: 'noopener' });
       if (p.thumb) { const t = el('div', { class: 'thumb' }); t.append(el('img', { src: p.thumb, alt: '', loading: 'lazy' })); a.append(t); }
       const top = el('div', { class: 'top' }); top.append(lang(p.language), badge(p));
-      a.append(top, el('h3', {}, p.name), el('p', { class: 'th' }, p.description), el('span', { class: 'foot' }, 'Updated ' + fmt(p.pushed)));
+      a.append(top, el('h3', {}, p.name), el('p', { class: 'th' }, p.description), el('span', { class: 'foot' }, 'อัปเดต ' + fmt(p.pushed)));
       grid.append(a);
     });
     out.replaceChildren(grid);
