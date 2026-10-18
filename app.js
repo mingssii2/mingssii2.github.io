@@ -34,9 +34,9 @@ document.querySelectorAll('[data-copy-target]').forEach(button => {
     button.disabled = true;
     try {
       await navigator.clipboard.writeText(prompt.textContent);
-      status.textContent = 'คัดลอกแล้ว นำไปใช้กับ agent ที่เพิ่ม skill นี้แล้วได้เลย';
+      status.textContent = 'คัดลอกแล้ว ใช้กับ agent ที่ติดตั้ง skill นี้แล้ว';
     } catch {
-      status.textContent = 'คัดลอกอัตโนมัติไม่ได้ เลือกข้อความคำสั่งแล้วคัดลอกเองได้เลย';
+      status.textContent = 'คัดลอกอัตโนมัติไม่ได้ เลือกข้อความคำสั่งเพื่อคัดลอกด้วยตนเอง';
     } finally {
       button.disabled = false;
     }
